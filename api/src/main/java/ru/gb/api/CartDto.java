@@ -1,28 +1,33 @@
 package ru.gb.api;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class CartDto {
-    private List<OrderItemDto> items;
+    private List<CartItemDto> items;
+    private BigDecimal totalPrice;
 
-    private int totalPrice;
-
-    public <R> CartDto(R collect, int totalPrice) {
-    }
-
-    public List<OrderItemDto> getItems() {
+    public List<CartItemDto> getItems() {
         return items;
     }
 
-    public void setItems(List<OrderItemDto> items) {
+    public void setItems(List<CartItemDto> items) {
         this.items = items;
     }
 
-    public int getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public CartDto() {
+    }
+
+    public CartDto(List<CartItemDto> items, BigDecimal totalPrice) {
+        this.items = items;
         this.totalPrice = totalPrice;
     }
 }

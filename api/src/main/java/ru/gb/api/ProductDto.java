@@ -1,16 +1,12 @@
 package ru.gb.api;
 
+import java.math.BigDecimal;
 
 public class ProductDto {
     private Long id;
     private String title;
-    private int price;
-
-    public ProductDto(Long id, String title, int price) {
-        this.id = id;
-        this.title = title;
-        this.price = price;
-    }
+    private BigDecimal price;
+    private String categoryTitle;
 
     public Long getId() {
         return id;
@@ -28,12 +24,29 @@ public class ProductDto {
         this.title = title;
     }
 
-    public int getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
-    /*   private String categoryTitle;*/
+
+    public String getCategoryTitle() {
+        return categoryTitle;
+    }
+
+    public void setCategoryTitle(String categoryTitle) {
+        this.categoryTitle = categoryTitle;
+    }
+
+    public ProductDto() {
+    }
+
+    public ProductDto(Long id, String title, BigDecimal price, String categoryTitle) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.categoryTitle = categoryTitle;
+    }
 }

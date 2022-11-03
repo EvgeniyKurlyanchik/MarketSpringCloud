@@ -11,8 +11,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProductServiceIntegration {
     private  final RestTemplate restTemplate;
-    public Optional<ProductDto >getProductById(Long id){
-return  Optional.ofNullable(restTemplate.getForObject("http://localhost:8189/market/api/v1/products/" + id,ProductDto.class ));
+    public ProductDto findById(Long id) {
+        return restTemplate.getForObject("http://localhost:8189/market-core/api/v1/products/" + id, ProductDto.class);
     }
 
 }
