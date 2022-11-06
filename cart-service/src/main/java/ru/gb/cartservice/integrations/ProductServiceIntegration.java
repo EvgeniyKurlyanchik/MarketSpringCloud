@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import ru.gb.api.ProductDto;
 
-import java.util.Optional;
+
 
 @Component
 @RequiredArgsConstructor

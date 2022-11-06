@@ -1,5 +1,6 @@
 package ru.gb.coreservice.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -14,6 +15,8 @@ import java.time.LocalDateTime;
 @Table(name = "products")
 @NoArgsConstructor
 @Data
+@AllArgsConstructor
+@EqualsAndHashCode
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
