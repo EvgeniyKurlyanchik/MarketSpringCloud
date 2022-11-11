@@ -3,7 +3,7 @@ package ru.gb.coreservice.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/orders")
 @RequiredArgsConstructor

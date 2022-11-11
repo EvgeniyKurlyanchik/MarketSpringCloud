@@ -10,7 +10,7 @@
         <module>cart-service</module>
 <!--        <module>auth-service</module>-->
 <!--        <module>gateway-service</module>-->
-<!--        <module>front-service</module>-->
+        <module>front-service</module>
     </modules>
 
 
