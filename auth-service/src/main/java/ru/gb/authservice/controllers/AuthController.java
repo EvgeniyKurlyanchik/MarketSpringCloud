@@ -1,4 +1,4 @@
-package ru.gb.coreservice.controllers;
+package ru.gb.authservice.controllers;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -7,22 +7,22 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 import ru.gb.api.JwtRequest;
 import ru.gb.api.JwtResponse;
-import ru.gb.coreservice.exceptions.AppError;
-import ru.gb.coreservice.services.UserService;
-import ru.gb.coreservice.utils.JwtTokenUtil;
-@CrossOrigin("*")
+import ru.gb.authservice.exceptions.AppError;
+import ru.gb.authservice.services.UserService;
+import ru.gb.authservice.utils.JwtTokenUtil;
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/auth")
 public class AuthController {
     private final UserService userService;
     private final JwtTokenUtil jwtTokenUtil;
     private final AuthenticationManager authenticationManager;
 
-    @PostMapping
+    @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthToken(@RequestBody JwtRequest authRequest) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));

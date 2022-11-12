@@ -1,4 +1,4 @@
-package ru.gb.coreservice.entities;
+package ru.gb.authservice.entities;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;

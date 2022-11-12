@@ -1,4 +1,4 @@
-package ru.gb.coreservice.services;
+package ru.gb.authservice.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -8,11 +8,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.gb.coreservice.entities.Role;
-import ru.gb.coreservice.entities.User;
-import ru.gb.coreservice.repositories.UserRepository;
-
-
+import ru.gb.authservice.entities.Role;
+import ru.gb.authservice.entities.User;
+import ru.gb.authservice.repositories.UserRepository;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
