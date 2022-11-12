@@ -1,10 +1,9 @@
-package ru.gb.coreservice.services;
+package ru.gb.authservice.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.gb.coreservice.entities.Role;
-import ru.gb.coreservice.repositories.RoleRepository;
-
+import ru.gb.authservice.entities.Role;
+import ru.gb.authservice.repositories.RoleRepository;
 
 @Service
 @RequiredArgsConstructor

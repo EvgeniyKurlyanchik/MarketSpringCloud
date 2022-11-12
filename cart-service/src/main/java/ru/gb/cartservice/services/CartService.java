@@ -2,6 +2,8 @@ package ru.gb.cartservice.services;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import ru.gb.api.ProductDto;
 import ru.gb.cartservice.integrations.ProductServiceIntegration;
 import ru.gb.cartservice.utils.Cart;
@@ -28,4 +30,9 @@ public class CartService {
         ProductDto p = productServiceIntegration.findById(productId);
         cart.add(p);
     }
+    public void clear(){
+        Cart cart = getCurrentCart();
+        cart.clear();
+    }
+
 }

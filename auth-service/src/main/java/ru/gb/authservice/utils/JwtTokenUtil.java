@@ -1,4 +1,4 @@
-package ru.gb.coreservice.utils;
+package ru.gb.authservice.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
