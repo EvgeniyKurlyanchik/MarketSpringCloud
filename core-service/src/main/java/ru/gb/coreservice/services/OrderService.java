@@ -38,8 +38,8 @@ private final CartServiceIntegration cartServiceIntegration;
     return order;
     }
 
-    public List<Order> findOrdersByUsername(String username) {
-        return orderRepository.findAllByUsername(username);
-    }
+//    public List<Order> findOrdersByUsername(String username) {
+//        return orderRepository.findAllByUsername(username);
+//    }
 
 }
