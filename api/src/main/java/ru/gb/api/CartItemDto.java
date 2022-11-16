@@ -45,7 +45,7 @@ public class CartItemDto {
         return price;
     }
 
-    public void setPrice(int i) {
+    public void setPrice(BigDecimal i) {
         this.price = price;
     }
 

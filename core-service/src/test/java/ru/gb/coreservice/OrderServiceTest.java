@@ -2,6 +2,7 @@ package ru.gb.coreservice;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,7 +38,7 @@ public class OrderServiceTest {
        List<CartItemDto> items = new ArrayList<>();
          CartItemDto cartItemDto =new CartItemDto();
          cartItemDto.setProductTitle("Торт");
-       cartItemDto.setPrice(1500);
+       cartItemDto.setPrice(BigDecimal.valueOf(1500));
        cartItemDto.setPricePerProduct(BigDecimal.valueOf(1500));
        cartItemDto.setProductId(1234L);
          cartItemDto.setQuantity(2);
@@ -55,7 +56,7 @@ public class OrderServiceTest {
        Order order =orderService.createOrder("admin") ;
        Assertions.assertEquals(order.getTotalPrice(),BigDecimal.valueOf(3000));
 
-
+Mockito.verify(orderRepository,Mockito.times(1)).save(ArgumentMatchers.any());
    }
 
 }
