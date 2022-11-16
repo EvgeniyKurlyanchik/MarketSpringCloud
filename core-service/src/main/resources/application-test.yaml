@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:mydatabase;
+    url: jdbc:h2:mem:test-market-core;MODE=PostgreSQL
     username: sa
     password:
   jpa:
@@ -18,17 +18,5 @@ spring:
       enabled: true
       settings:
         web-allow-others: false
-
-
-logging:
-  level:
-    org:
-      flywaydb=DEBUG:
-
-integrations:
-  cart-service:
-    url: http://localhost:8190/market-cart
-    connect-timeout: 5000
-    read-timeout: 10000
-    write-timeout: 5000
-
+  flyway:
+    locations: classpath:/db/test

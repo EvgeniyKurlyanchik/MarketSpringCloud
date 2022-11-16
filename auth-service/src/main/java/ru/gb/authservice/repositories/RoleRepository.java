@@ -1,10 +1,8 @@
-package ru.gb.coreservice.repositories;
+package ru.gb.authservice.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.gb.coreservice.entities.Role;
-
-
+import ru.gb.authservice.entities.Role;
 import java.util.Optional;
 
 @Repository

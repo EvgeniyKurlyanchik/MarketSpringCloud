@@ -6,7 +6,7 @@ create table categories
     updated_at      timestamp default current_timestamp
 );
 
-create table if not exists products
+create table products
 (
     id              bigserial primary key,
     title           varchar(255),
@@ -16,7 +16,7 @@ create table if not exists products
     updated_at      timestamp default current_timestamp
 );
 
-insert into categories (title) values ('Еда');
+insert into categories (title) values ('Еда'), ('Ноутбуки'), ('Смартфоны');
 
 insert into products (title, price, category_id)
 values ('Молоко', 100.20, 1),

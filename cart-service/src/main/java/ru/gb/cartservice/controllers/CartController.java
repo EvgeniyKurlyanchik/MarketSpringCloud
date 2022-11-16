@@ -10,7 +10,6 @@ import ru.gb.cartservice.services.CartService;
 @RestController
 @RequestMapping("/api/v1/cart")
 @RequiredArgsConstructor
-@CrossOrigin("*")
 public class CartController {
     private final CartService cartService;
     private final CartConverter cartConverter;
@@ -24,4 +23,10 @@ public class CartController {
     public void addProductToCart(@PathVariable Long productId) {
         cartService.addToCart(productId);
     }
+
+    @PostMapping("/clear")
+    public void clearCart() {
+        cartService.getCurrentCart().clear();
+    }
+
 }
