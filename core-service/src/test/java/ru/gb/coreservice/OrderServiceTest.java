@@ -30,9 +30,10 @@ public class OrderServiceTest {
     private  OrderRepository orderRepository;
 @MockBean
     private  CartServiceIntegration cartServiceIntegration;
+    private String username;
 
 
-   @Test
+    @Test
    public void createOrderTest(){
        CartDto cartDto =new CartDto();
        List<CartItemDto> items = new ArrayList<>();
@@ -45,7 +46,7 @@ public class OrderServiceTest {
         cartDto.setTotalPrice(BigDecimal.valueOf(3000));
     cartDto.setItems(List.of(cartItemDto));
 
-       Mockito.doReturn(cartDto).when(cartServiceIntegration).getCurrentCart();
+       Mockito.doReturn(cartDto).when(cartServiceIntegration).getCurrentUserCart( username);
        Product product =new Product();
        product.setId(1234L);
        product.setTitle("Торт");
@@ -53,7 +54,7 @@ public class OrderServiceTest {
 
        Mockito.doReturn(Optional.of(product)).when(productService).findById(1234L);
 
-       Order order =orderService.createOrder("admin") ;
+       Order order =orderService.createNewOrder("admin") ;
        Assertions.assertEquals(order.getTotalPrice(),BigDecimal.valueOf(3000));
 
 Mockito.verify(orderRepository,Mockito.times(1)).save(ArgumentMatchers.any());

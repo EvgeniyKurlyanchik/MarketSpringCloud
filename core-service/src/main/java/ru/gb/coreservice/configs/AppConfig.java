@@ -39,11 +39,4 @@ public class AppConfig {
                 .build();
     }
 
-
-
-//    @Bean
-//    public RestTemplate restTemplate(){
-//
-//        return new RestTemplate();
-//    }
 }

@@ -1,33 +1,30 @@
 package ru.gb.coreservice.controllers;
 
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.Parameter;
-import org.springframework.data.domain.jaxb.SpringDataJaxb;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import ru.gb.api.OrderDto;
+import ru.gb.coreservice.converters.OrderConverter;
 import ru.gb.coreservice.services.OrderService;
 
-
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
 @RequestMapping("/api/v1/orders")
 @RequiredArgsConstructor
 public class OrderController {
-private final OrderService orderService;
-
+    private final OrderService orderService;
+    private final OrderConverter orderConverter;
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createOrder(@RequestHeader String username) {
-       orderService.createOrder(username);
+    public void createNewOrder(@RequestHeader String username) {
+        orderService.createNewOrder(username);
     }
 
-//    @GetMapping
-//    public List<OrderDto> getUserOrders(
-//            @Parameter(description = "Имя текущего пользователя", required = true)
-//            @RequestHeader String username
-//    ) {
-//        return orderService.findByUsername(username).stream().map(orderConverter::entityToDto).collect(Collectors.toList());
-//    }
-
+    @GetMapping
+    public List<OrderDto> getUserOrders(@RequestHeader String username) {
+        return orderService.findUserOrders(username).stream().map(orderConverter::entityToDto).collect(Collectors.toList());
+    }
 }
