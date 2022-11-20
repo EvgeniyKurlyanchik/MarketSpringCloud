@@ -23,7 +23,4 @@ private  final WebClient productServiceWebClient;
     }
 
 
-//        return restTemplate.getForObject("http://localhost:8189/market-core/api/v1/products/" + id, ProductDto.class);
-//    }
-
 }
