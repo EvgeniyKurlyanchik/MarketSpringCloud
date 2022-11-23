@@ -39,4 +39,7 @@ public class CartService {
     public void clearCart(String cartId) {
         getCurrentCart(cartId).clear();
     }
+//    public void removeFromCart(String cartId, Long productId) {
+//        execute(cartId, cart -> cart.remove(productId));
+//    }
 }

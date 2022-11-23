@@ -26,7 +26,7 @@
         </table>
         <p></p>
         <button class="btn btn-secondary" ng-click="guestCreateOrder()" ng-show="!isUserLoggedIn()">Оформить заказ</button>
-        <button class="btn btn-primary" ng-click="createOrder()" ng-show="isUserLoggedIn()">Оформить заказ</button>
+        <button class="btn btn-primary" ng-click="createNewOrder()" ng-show="isUserLoggedIn()">Оформить заказ</button>
     </div>
     <div ng-show="cart.items.length == 0">
         <p>Ваша корзина пуста</p>
