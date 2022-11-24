@@ -36,4 +36,10 @@ public class Cart {
         totalPrice = BigDecimal.ZERO;
         items.forEach(i -> totalPrice = totalPrice.add(i.getPrice()));
     }
+    public void remove(Long productId) {
+        if (items.removeIf(p -> p.getProductId().equals(productId))) {
+            recalculate();
+        }
+    }
+
 }
