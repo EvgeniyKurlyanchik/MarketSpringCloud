@@ -16,6 +16,9 @@
                 <td>{{ci.productTitle}}</td>
                 <td>{{ci.quantity}}</td>
                 <td>{{ci.pricePerProduct + ' x ' + ci.quantity + ' = ' + ci.price}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger" ng-click="removeFromCart(ci.productId)">Убрать из корзины</button>
+                </td>
             </tr>
             <tr>
                 <td></td>
@@ -24,6 +27,9 @@
             </tr>
             </tbody>
         </table>
+        <p>
+            <button class="btn btn-secondary" ng-click="clearCart()">Очистить корзину</button>
+        </p>
         <p></p>
         <button class="btn btn-secondary" ng-click="guestCreateOrder()" ng-show="!isUserLoggedIn()">Оформить заказ</button>
         <button class="btn btn-primary" ng-click="createNewOrder()" ng-show="isUserLoggedIn()">Оформить заказ</button>

@@ -36,4 +36,9 @@ public class Order {
     @Column(name = "updated_at")
     @UpdateTimestamp
     private LocalDateTime updatedAt;
+    @Column(name = "address")
+    private String address;
+
+    @Column(name = "phone")
+    private String phone;
 }

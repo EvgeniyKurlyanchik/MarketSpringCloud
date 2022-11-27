@@ -46,4 +46,9 @@ public class CartController {
         }
         return guestCartId;
     }
+    @GetMapping("/{guestCartId}/remove/{id}")
+    public void removeFromCart(@RequestHeader(name = "username", required = false) String username, @PathVariable String guestCartId, @PathVariable Long id) {
+        String currentCartId = selectCartId(username, guestCartId);
+        cartService.remove(currentCartId, id);
+    }
 }
