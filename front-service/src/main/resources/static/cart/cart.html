@@ -31,6 +31,15 @@
             <button class="btn btn-secondary" ng-click="clearCart()">Очистить корзину</button>
         </p>
         <p></p>
+        <h3>Детали заказа</h3>
+        <form novalidate>
+            <input class="form-control" type="text" placeholder="Номер телефона получателя" ng-model="orderDetails.phone">
+            <p></p>
+            <input class="form-control" type="text" placeholder="Адрес доставки" ng-model="orderDetails.address">
+            <p></p>
+        </form>
+
+        <p></p>
         <button class="btn btn-secondary" ng-click="guestCreateOrder()" ng-show="!isUserLoggedIn()">Оформить заказ</button>
         <button class="btn btn-primary" ng-click="createNewOrder()" ng-show="isUserLoggedIn()">Оформить заказ</button>
     </div>

@@ -1,6 +1,7 @@
 package ru.gb.cartservice.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -51,26 +52,19 @@ public class CartService {
     public void remove(String cartId, Long productId) {
         execute(cartId, cart -> cart.remove(productId));
     }
+    public void merge(String userCartId, String guestCartId) {
+        Cart guestCart = getCurrentCart(guestCartId);
+        Cart userCart = getCurrentCart(userCartId);
+        userCart.merge(guestCart);
+        updateCart(guestCartId, guestCart);
+        updateCart(userCartId, userCart);
+    }
+    public void updateCart(String cartId, Cart cart) {
+        redisTemplate.opsForValue().set(cartId, cart);
+    }
+    @Value("${utils.cart.prefix}")
+    private String cartPrefix;
+    public String getCartUuidFromSuffix(String suffix) {
+        return cartPrefix + suffix;
+    }
 }
-//    private Map<String, Cart> carts;
-
-//    @PostConstruct
-//    public void init() {
-//        carts = new HashMap<>();
-//    }
-//    public Cart getCurrentCart(String cartId) {
-//        if (!carts.containsKey(cartId)) {
-//            Cart cart = new Cart();
-//            carts.put(cartId, cart);
-//        }
-//        return carts.get(cartId);
-//    }
-
-//    public void addToCart(String cartId, Long productId) {
-//        ProductDto p = productServiceIntegration.findById(productId);
-//        getCurrentCart(cartId).add(p);
-//    }
-
-//    public void clearCart(String cartId) {
-//        getCurrentCart(cartId).clear();
-//    }

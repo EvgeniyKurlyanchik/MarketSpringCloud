@@ -51,4 +51,18 @@ public class CartController {
         String currentCartId = selectCartId(username, guestCartId);
         cartService.remove(currentCartId, id);
     }
+    @GetMapping("/{guestCartId}/merge")
+    public void merge(@RequestHeader(required = false) String username, @PathVariable String uuid) {
+        cartService.merge(
+                getCurrentCartUuid(username, null),
+                getCurrentCartUuid(null, uuid)
+        );
+    }
+    private String getCurrentCartUuid(String username, String uuid) {
+        if (username != null) {
+            return cartService.getCartUuidFromSuffix(username);
+        }
+        return cartService.getCartUuidFromSuffix(uuid);
+    }
+
 }
