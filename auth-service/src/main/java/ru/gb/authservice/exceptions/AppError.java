@@ -10,4 +10,7 @@ import lombok.NoArgsConstructor;
 public class AppError {
     private String code;
     private String message;
+
+    public AppError(int value, String пароли_не_совпадают) {
+    }
 }

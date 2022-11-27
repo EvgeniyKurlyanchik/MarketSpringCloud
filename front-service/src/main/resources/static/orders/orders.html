@@ -6,12 +6,16 @@
         <thead>
         <tr>
             <td>ID Заказа</td>
+            <td>Адрес</td>
+            <td>Телефон</td>
             <td>Цена</td>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="o in orders">
             <td>{{o.id}}</td>
+            <td>{{o.adress}}</td>
+            <td>{{o.phone}}</td>
             <td>{{o.totalPrice}}</td>
         </tr>
         </tbody>

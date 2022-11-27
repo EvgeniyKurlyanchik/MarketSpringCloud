@@ -22,6 +22,10 @@
                 templateUrl: 'orders/orders.html',
                 controller: 'ordersController'
             })
+            .when('/registration', {
+                templateUrl: 'registration/registration.html',
+                controller: 'registrationController'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -74,6 +78,7 @@ angular.module('market').controller('indexController', function ($rootScope, $sc
 
     $scope.tryToLogout = function () {
         $scope.clearUser();
+        $scope.user = null;
         $location.path('/');
     };
 

@@ -20,6 +20,7 @@ angular.module('market').controller('storeController', function ($scope, $http, 
             .then(function (response) {
             });
     }
+
     $scope.generatePagesList = function (totalPages) {
         out = [];
         for (let i = 0; i < totalPages; i++) {
