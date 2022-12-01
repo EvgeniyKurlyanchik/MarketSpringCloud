@@ -9,3 +9,7 @@ integrations:
     connect-timeout: 5000
     read-timeout: 10000
     write-timeout: 5000
+
+utils:
+  cart:
+    prefix: SPRING_WEB_APP_
