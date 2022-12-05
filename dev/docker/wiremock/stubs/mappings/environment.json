@@ -1,0 +1,19 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "urlPath": "/oauth2/token"
+      },
+      "response": {
+        "status": 200,
+        "bodyFileName": "jwt-token.json",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "fixedDelayMilliseconds": 10000
+      }
+    }
+
+  ]
+}
