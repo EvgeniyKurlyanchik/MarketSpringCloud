@@ -9,6 +9,7 @@ import ru.gb.api.ProductDto;
 import ru.gb.coreservice.entities.Product;
 import ru.gb.coreservice.exceptions.ResourceNotFoundException;
 import ru.gb.coreservice.repositories.ProductRepository;
+import ru.gb.coreservice.validators.ProductValidator;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,18 +20,18 @@ import java.util.Optional;
 public class ProductService {
     private final ProductRepository productRepository;
     private final CategoryService categoryService;
+    private final ProductValidator productValidator;
     public Page<Product> findAll(int page, int pageSize, Specification<Product> specification) {
         return productRepository.findAll(specification, PageRequest.of(page, pageSize));
     }
-//    public List<Product> findAll() {
-//        return productRepository.findAll();
-//    }
+
 
     public void deleteById(Long id) {
         productRepository.deleteById(id);
     }
 
     public void createNewProduct(ProductDto productDto) {
+        productValidator.validate(productDto);
         Product product = new Product();
         product.setTitle(productDto.getTitle());
         product.setPrice(productDto.getPrice());
