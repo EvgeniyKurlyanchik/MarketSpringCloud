@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+@Entity
 @Getter
 @Setter
 @Builder
@@ -27,20 +28,13 @@ public class User {
 
     @Column(name = "email")
     private String email;
-//    @CreationTimestamp
-//    @Column(name = "created_at")
-//    private LocalDateTime createdAt;
-//
-//    @UpdateTimestamp
-//    @Column(name = "updated_at")
-//    private LocalDateTime updatedAt;
-//
-//    public User(Long id, String username, String password, String email, LocalDateTime createdAt, LocalDateTime updatedAt) {
-//        this.id = id;
-//        this.username = username;
-//        this.password = password;
-//        this.email = email;
-//        this.createdAt = createdAt;
-//        this.updatedAt = updatedAt;
-//    }
-}
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
+
+    }
