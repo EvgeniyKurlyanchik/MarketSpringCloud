@@ -1,5 +1,6 @@
-package com.example.datamapper;
+package com.example.datamapper.repositories;
 
+import com.example.datamapper.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

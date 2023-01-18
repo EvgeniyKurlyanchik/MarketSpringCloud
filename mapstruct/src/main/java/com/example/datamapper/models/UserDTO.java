@@ -1,4 +1,4 @@
-package com.example.datamapper;
+package com.example.datamapper.models;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

@@ -1,5 +1,9 @@
-package com.example.datamapper;
+package com.example.datamapper.controllers;
 
+import com.example.datamapper.models.User;
+import com.example.datamapper.models.UserDTO;
+import com.example.datamapper.UserMapper;
+import com.example.datamapper.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,7 @@
-package com.example.datamapper;
+package com.example.datamapper.services;
+import com.example.datamapper.models.User;
+import com.example.datamapper.repositories.UserRepository;
+import com.example.datamapper.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

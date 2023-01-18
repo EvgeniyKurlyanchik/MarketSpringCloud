@@ -1,4 +1,4 @@
-package com.example.datamapper;
+package com.example.datamapper.models;
 
 
 import jakarta.persistence.*;
